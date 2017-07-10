@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  jenkins:
+    build: .
+    image: ragedunicorn/jenkins:1.0.0-stable
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    ports:
+      - "8080:8080"
+    expose:
+      - "50000"
+    labels:
+      com.ragedunicorn.jenkins.environment: "prod"
+      com.ragedunicorn.jenkins.description: "Jenkins"
+volumes:
+  jenkins_data: {}
