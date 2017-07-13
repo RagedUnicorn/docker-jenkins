@@ -25,6 +25,7 @@ if [ $? -eq 0 ]; then
 else
   ## run image:
   # -p expose port
+  # -v mount a volume
   # -d run in detached mode
   # -i Keep STDIN open even if not attached
   # -t Allocate a pseudo-tty
