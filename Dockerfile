@@ -21,6 +21,7 @@ ENV \
   JENKINS_HOME=/var/jenkins_home \
   JENKINS_SLAVE_AGENT_PORT=50000 \
   JENKINS_USER=jenkins \
+  JENKINS_GROUP=jenkins \
   JENKINS_SHA=1fd02a942cca991577ee9727dd3d67470e45c031
 
 ENV \
@@ -28,7 +29,7 @@ ENV \
   PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
 # explicitly set user/group IDs
-RUN addgroup -S "${JENKINS_USER}" -g 9999 && adduser -S -G "${JENKINS_USER}" -u 9999 "${JENKINS_USER}"
+RUN addgroup -S "${JENKINS_GROUP}" -g 9999 && adduser -S -G "${JENKINS_GROUP}" -u 9999 "${JENKINS_USER}"
 
 RUN \
   set -ex; \
