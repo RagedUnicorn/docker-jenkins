@@ -59,6 +59,6 @@ EXPOSE 8080
 # slave agents
 EXPOSE 50000
 
-VOLUME "${JENKINS_HOME}"
+VOLUME ["${JENKINS_HOME}"]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
