@@ -44,9 +44,9 @@ RUN \
   mkdir -p /usr/share/jenkins; \
   curl -fSL https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/"${JENKINS_VERSION}"/jenkins-war-"${JENKINS_VERSION}".war -o /usr/share/jenkins/jenkins.war; \
   echo "${JENKINS_SHA} */usr/share/jenkins/jenkins.war" | sha1sum -c -; \
-  chown -R "${JENKINS_USER}":"${JENKINS_USER}" /usr/share/jenkins; \
+  chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /usr/share/jenkins; \
   mkdir -p "${JENKINS_HOME}"; \
-  chown -R "${JENKINS_USER}":"${JENKINS_USER}" /var/jenkins_home
+  chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /var/jenkins_home
 
 # add launch script
 COPY docker-entrypoint.sh /
