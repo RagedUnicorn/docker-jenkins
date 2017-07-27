@@ -12,6 +12,8 @@ The container can be easily started with `docker-compose` command.
 docker-compose up -d
 ```
 
+Once the container is running navigate to http://[dockerhost]:8080 and finish the configuration. The secret password that jenkins automatically sets can be found by looking into the container with `docker exec -it [container_id] /bin/sh`. Jenkins puts the initial password to the following location: `/var/lib/jenkins/secrets/initialAdminPassword`.
+
 #### Stop container
 
 To stop all services from the docker-compose file
