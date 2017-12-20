@@ -2,7 +2,7 @@ version: '3.3'
 services:
   jenkins:
     build: .
-    image: ragedunicorn/jenkins:1.0.0-dev
+    image: ragedunicorn/jenkins:1.0.1-dev
     volumes:
       - jenkins_data:/var/jenkins_home
     ports:
