@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.4'
 services:
   jenkins:
     build: .
@@ -9,6 +9,11 @@ services:
       - "8080:8080"
     expose:
       - "50000"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8080"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     labels:
       com.ragedunicorn.jenkins.environment: "prod"
       com.ragedunicorn.jenkins.description: "Jenkins"
