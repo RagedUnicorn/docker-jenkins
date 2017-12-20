@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM ragedunicorn/openjdk:1.0.1-jre-stable
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>"
 
@@ -12,9 +12,8 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 ENV \
   JENKINS_VERSION=2.9 \
   SU_EXEC_VERSION=0.2-r0 \
-  CURL=7.52.1-r3 \
-  TTF_DEJAVU_VERSION=2.35-r0 \
-  JAVA_VERSION=8.121.13-r0
+  CURL=7.57.0-r0 \
+  TTF_DEJAVU_VERSION=2.37-r0
 
 ENV \
   JENKINS_HOME=/var/jenkins_home \
@@ -23,10 +22,6 @@ ENV \
   JENKINS_GROUP=jenkins \
   JENKINS_SHA=1fd02a942cca991577ee9727dd3d67470e45c031
 
-ENV \
-  JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre \
-  PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
-
 # explicitly set user/group IDs
 RUN addgroup -S "${JENKINS_GROUP}" -g 9999 && adduser -S -G "${JENKINS_GROUP}" -u 9999 "${JENKINS_USER}"
 
@@ -34,7 +29,6 @@ RUN \
   set -ex; \
   apk add --no-cache \
     su-exec="${SU_EXEC_VERSION}" \
-    openjdk8="${JAVA_VERSION}" \
     ttf-dejavu="${TTF_DEJAVU_VERSION}" \
     curl="${CURL}"
 
