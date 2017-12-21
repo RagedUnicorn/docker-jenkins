@@ -66,16 +66,6 @@ The container is storing data in a docker volume `/var/jenkins_home`. Jobs and c
 
 The production and the stack image supports a simple healthcheck whether the container is healthy or not. This can be configured inside `docker-compose.yml` or `docker-compose.stack.yml`
 
-Containers that depend on this container can make sure that it is up and running before starting up themselves.
-
-```
-depends_on:
-  jenkins:
-    condition: service_healthy
-```
-
-This will prevent the depending container from starting up until this service is in a healthy state.
-
 ## Development
 
 To debug the container and get more insight into the container use the `docker-compose.dev.yml` configuration.
