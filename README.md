@@ -91,12 +91,6 @@ By default the launchscript `/docker-entrypoint.sh` will not be used to start th
 Alpine packages database
 - https://pkgs.alpinelinux.org/packages
 
-## Notes
-
-The container cannot be updated to Alpine 3.6 because of Alpine Bug #7372. The packaged openjdk's libfontmanager is missing a Symbol. Target Version for a fix is 3.6.3
-
-- https://bugs.alpinelinux.org/issues/7372
-
 ## License
 
 Copyright (c) 2017 Michael Wiesendanger
