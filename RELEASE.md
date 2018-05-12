@@ -13,10 +13,10 @@
   * Short description of what was added newly
 * Update docker hub
   * Build dev tag `docker-compose -f docker-compose.dev.yml build`
-  * Push image to dockerhub `docker push ragedunicorn/nexus:x.x.x-dev`
+  * Push image to dockerhub `docker push ragedunicorn/jenkins:x.x.x-dev`
   * Build stable tag `docker-compose build`
-  * Push image to dockerhub `docker push ragedunicorn/nexus:x.x.x-stable`
+  * Push image to dockerhub `docker push ragedunicorn/jenkins:x.x.x-stable`
   * Tag and push stable version as latest version (default image for docker hub)
-    * `docker tag ragedunicorn/nexus:x.x.x-stable ragedunicorn/nexus:latest`
-    * `docker push ragedunicorn/nexus:latest`
+    * `docker tag ragedunicorn/jenkins:x.x.x-stable ragedunicorn/jenkins:latest`
+    * `docker push ragedunicorn/jenkins:latest`
 * Update docker hub description links
