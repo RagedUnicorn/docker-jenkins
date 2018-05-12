@@ -10,7 +10,7 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 
 # software versions
 ENV \
-  JENKINS_VERSION=2.89.2 \
+  JENKINS_VERSION=2.107.3 \
   SU_EXEC_VERSION=0.2-r0 \
   TTF_DEJAVU_VERSION=2.37-r0
 
@@ -19,7 +19,7 @@ ENV \
   JENKINS_SLAVE_AGENT_PORT=50000 \
   JENKINS_USER=jenkins \
   JENKINS_GROUP=jenkins \
-  JENKINS_SHA=cf7be0af90e310a3232bcf1d6c80902788d5ebae
+  JENKINS_SHA=fc2d2eac8d3a04ffe6b4dc14eac52b2412f6c212
 
 # explicitly set user/group IDs
 RUN addgroup -S "${JENKINS_GROUP}" -g 9999 && adduser -S -G "${JENKINS_GROUP}" -u 9999 "${JENKINS_USER}"
