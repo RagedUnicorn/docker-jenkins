@@ -12,7 +12,6 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 ENV \
   JENKINS_VERSION=2.89.2 \
   SU_EXEC_VERSION=0.2-r0 \
-  CURL=7.57.0-r0 \
   TTF_DEJAVU_VERSION=2.37-r0
 
 ENV \
@@ -29,13 +28,12 @@ RUN \
   set -ex; \
   apk add --no-cache \
     su-exec="${SU_EXEC_VERSION}" \
-    ttf-dejavu="${TTF_DEJAVU_VERSION}" \
-    curl="${CURL}"
+    ttf-dejavu="${TTF_DEJAVU_VERSION}"
 
 RUN \
   set -ex; \
   mkdir -p /usr/share/jenkins; \
-  curl -fSL https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/"${JENKINS_VERSION}"/jenkins-war-"${JENKINS_VERSION}".war -o /usr/share/jenkins/jenkins.war; \
+  wget -qO /usr/share/jenkins/jenkins.war https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/"${JENKINS_VERSION}"/jenkins-war-"${JENKINS_VERSION}".war; \
   echo "${JENKINS_SHA} */usr/share/jenkins/jenkins.war" | sha1sum -c -; \
   chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /usr/share/jenkins; \
   mkdir -p "${JENKINS_HOME}"; \
