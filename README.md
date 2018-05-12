@@ -1,8 +1,12 @@
 # docker-jenkins
 
-> A docker base to build a container for Jenkins based on Alpine Linux
+> A docker base image to build a container for Jenkins based on Alpine Linux
 
-### Using the image
+## Version
+
+* Jenkins 2
+
+## Using the image
 
 #### Start container
 
