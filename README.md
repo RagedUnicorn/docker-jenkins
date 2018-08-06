@@ -74,7 +74,7 @@ They all have a default value and don't have to be overridden. For details see t
 
 ## Persistence
 
-The container is storing data in a docker volume `/var/jenkins_home`. Jobs and configuration are persisted within this volume.
+The container is storing data in the docker volume configured by the environment variable `${JENKINS_HOME}`.
 
 ## Healthcheck
 
