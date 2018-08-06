@@ -2,7 +2,7 @@ version: '3.6'
 services:
   jenkins:
     build: .
-    image: ragedunicorn/jenkins:1.0.2-stable
+    image: ragedunicorn/jenkins:${JENKINS_TAG_VERSION}-stable
     volumes:
       - jenkins_data:/var/jenkins_home
     ports:
