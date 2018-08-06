@@ -36,14 +36,14 @@ RUN \
 
 RUN \
   set -ex; \
-  mkdir -p /usr/share/jenkins; \
-  if ! wget -qO /usr/share/jenkins/jenkins.war https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/"${JENKINS_VERSION}"/jenkins-war-"${JENKINS_VERSION}".war; then \
-    echo >&2 "Error: Failed to download Jenkins binary"; \
-    exit 1; \
+  mkdir -p /usr/share/jenkins && \
+  if ! wget -qO /usr/share/jenkins/jenkins.war https://repo.jenkins-ci.org/public/org/jenkins-ci/main/jenkins-war/"${JENKINS_VERSION}"/jenkins-war-"${JENKINS_VERSION}".war && then \
+    echo >&2 "Error: Failed to download Jenkins binary" && \
+    exit 1 && \
   fi && \
-  echo "${JENKINS_SHA} */usr/share/jenkins/jenkins.war" | sha1sum -c -; \
-  chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /usr/share/jenkins; \
-  mkdir -p "${JENKINS_HOME}"; \
+  echo "${JENKINS_SHA} */usr/share/jenkins/jenkins.war" | sha1sum -c - && \
+  chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /usr/share/jenkins && \
+  mkdir -p "${JENKINS_HOME}" && \
   chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /var/jenkins_home
 
 # add launch script
