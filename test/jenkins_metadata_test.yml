@@ -1,0 +1,16 @@
+schemaVersion: 2.0.0
+
+metadataTest:
+  env:
+    - key: 'JENKINS_USER'
+      value: 'jenkins'
+    - key: 'JENKINS_GROUP'
+      value: 'jenkins'
+    - key: 'JENKINS_HOME'
+      value: '/var/jenkins_home'
+  labels:
+    - key: 'com.ragedunicorn.maintainer'
+      value: 'Michael Wiesendanger <michael.wiesendanger@gmail.com>'
+  exposedPorts: ["8080", "50000"]
+  volumes: ["/var/jenkins_home"]
+  entrypoint: ["/docker-entrypoint.sh"]
