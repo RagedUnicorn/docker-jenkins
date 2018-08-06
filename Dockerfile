@@ -8,6 +8,10 @@ LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gm
 #  / / / /_/ / / / / / / /__/ /_/ / /_
 # /_/  \____/_/ /_/ /_/\___/\__,_/\__/
 
+# image args
+ARG JENKINS_USER=jenkins
+ARG JENKINS_GROUP=jenkins
+
 # software versions
 ENV \
   JENKINS_VERSION=2.107.3 \
@@ -15,10 +19,10 @@ ENV \
   TTF_DEJAVU_VERSION=2.37-r0
 
 ENV \
+  JENKINS_USER="${JENKINS_USER}" \
+  JENKINS_GROUP="${JENKINS_GROUP}" \
   JENKINS_HOME=/var/jenkins_home \
   JENKINS_SLAVE_AGENT_PORT=50000 \
-  JENKINS_USER=jenkins \
-  JENKINS_GROUP=jenkins \
   JENKINS_SHA=fc2d2eac8d3a04ffe6b4dc14eac52b2412f6c212
 
 # explicitly set user/group IDs
