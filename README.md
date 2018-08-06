@@ -26,6 +26,27 @@ To stop all services from the docker-compose file
 docker-compose down
 ```
 
+### Creating a stack
+
+To create a stack the specific `docker-compose.stack.yml` file can be used. It requires that you already built all the images that are consumed by the stack or that they are available in a reachable docker repository.
+
+```
+docker-compose build --no-cache
+```
+
+#### Join a swarm
+
+```
+docker swarm init
+```
+
+#### Deploy stack
+```
+docker stack deploy --compose-file=docker-compose.stack.yml [stackname]
+```
+
+For a production deployment a stack should be deployed.
+
 ## Dockery
 
 In the dockery folder are some scripts that help out avoiding retyping long docker commands but are mostly intended for playing around with the container. For production use docker-compose should be used.

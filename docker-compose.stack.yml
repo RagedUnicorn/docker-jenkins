@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  jenkins:
+    image: ragedunicorn/jenkins:1.1.0-stable
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "/docker-healthcheck.sh"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 1m
+    labels:
+      com.ragedunicorn.jenkins.environment: "prod"
+      com.ragedunicorn.jenkins.description: "Jenkins"
+volumes:
+  jenkins_data: {}
