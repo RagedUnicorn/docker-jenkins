@@ -46,11 +46,16 @@ RUN \
   mkdir -p "${JENKINS_HOME}" && \
   chown -R "${JENKINS_USER}":"${JENKINS_GROUP}" /var/jenkins_home
 
+
+# add healthcheck script
+COPY docker-healthcheck.sh /
+
 # add launch script
 COPY docker-entrypoint.sh /
 
 RUN \
-  chmod 755 /docker-entrypoint.sh
+  chmod 755 /docker-entrypoint.sh && \
+  chmod 755 /docker-healthcheck.sh
 
 # web interface
 EXPOSE 8080
