@@ -14,16 +14,17 @@ ARG JENKINS_GROUP=jenkins
 
 # software versions
 ENV \
-  JENKINS_VERSION=2.107.3 \
+  JENKINS_VERSION=2.168 \
   SU_EXEC_VERSION=0.2-r0 \
-  TTF_DEJAVU_VERSION=2.37-r1
+  TTF_DEJAVU_VERSION=2.37-r1 \
+  NSS_VERSION=3.41-r0
 
 ENV \
   JENKINS_USER="${JENKINS_USER}" \
   JENKINS_GROUP="${JENKINS_GROUP}" \
   JENKINS_HOME=/var/jenkins_home \
   JENKINS_SLAVE_AGENT_PORT=50000 \
-  JENKINS_SHA=fc2d2eac8d3a04ffe6b4dc14eac52b2412f6c212
+  JENKINS_SHA=286e13443a55200a22f33ec919e2404c9e629d61
 
 # explicitly set user/group IDs
 RUN addgroup -S "${JENKINS_GROUP}" -g 9999 && adduser -S -G "${JENKINS_GROUP}" -u 9999 "${JENKINS_USER}"
@@ -32,7 +33,8 @@ RUN \
   set -ex; \
   apk add --no-cache \
     su-exec="${SU_EXEC_VERSION}" \
-    ttf-dejavu="${TTF_DEJAVU_VERSION}"
+    ttf-dejavu="${TTF_DEJAVU_VERSION}" \
+    nss="${NSS_VERSION}"
 
 RUN \
   set -ex; \
