@@ -1,4 +1,4 @@
-FROM ragedunicorn/openjdk:1.1.0-jre-stable
+FROM ragedunicorn/openjdk:1.2.0-jre-stable
 
 LABEL com.ragedunicorn.maintainer="Michael Wiesendanger <michael.wiesendanger@gmail.com>"
 
@@ -16,7 +16,7 @@ ARG JENKINS_GROUP=jenkins
 ENV \
   JENKINS_VERSION=2.107.3 \
   SU_EXEC_VERSION=0.2-r0 \
-  TTF_DEJAVU_VERSION=2.37-r0
+  TTF_DEJAVU_VERSION=2.37-r1
 
 ENV \
   JENKINS_USER="${JENKINS_USER}" \
